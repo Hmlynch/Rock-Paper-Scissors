@@ -23,34 +23,33 @@ class Rock_Paper_Scissors():
                     print("Please enter a valid choice!")
             except ValueError:
                 print("Please enter a valid choice!")
-        return player_choice
+        self.player_option = player_choice
         
 
     def computer_move(self):
-        computer_choice = random.choice(self.choices)
-        return computer_choice
+        self.computer_option = random.choice(self.choices).lower()
 
-    def who_wins(self): # Should I be using self.player_move() instead of self.player_choice?
+    def who_wins(self): # Should I be using self.player_option() instead of self.player_choice?
 
-        # player = self.player_move
-        # computer = self.computer_move
+        # player = self.player_option
+        # computer = self.computer_option
         
-        if self.player_move == 'rock' and self.computer_move == 'scissors':
+        if self.player_option == 'rock' and self.computer_option == 'scissors':
             self.player_wins += 1
             return "Player wins"
-        elif self.computer_move == 'rock' and self.player_move == 'scissors':
+        elif self.computer_option == 'rock' and self.player_option == 'scissors':
             self.computer_wins += 1
             return "Computer wins"
-        elif self.player_move == 'scissors' and self.computer_move == 'paper':
+        elif self.player_option == 'scissors' and self.computer_option == 'paper':
             self.player_wins += 1
             return "Player wins"
-        elif self.computer_move =='scissors' and self.player_move == 'paper':
+        elif self.computer_option =='scissors' and self.player_option == 'paper':
             self.computer_wins += 1
             return "Computer wins"
-        elif self.player_move == 'paper' and self.computer_move == 'rock':
+        elif self.player_option == 'paper' and self.computer_option == 'rock':
             self.player_wins += 1
             return "Player wins"
-        elif self.computer_move == 'paper' and self.player_move == 'rock':
+        elif self.computer_option == 'paper' and self.player_option == 'rock':
             self.computer_wins += 1
             return "Computer wins"
         else:
@@ -63,7 +62,7 @@ class Rock_Paper_Scissors():
                 self.player_move()
                 self.computer_move()
                 self.who_wins()
-                print(f"Player Chose: {self.player_move}\nComputer Chose: {self.computer_move}")
+                print(f"Player Chose: {self.player_option}\nComputer Chose: {self.computer_option}")
                 print(f"Player wins: {self.player_wins}\nComputer wins: {self.computer_wins}")
             elif self.player_wins == 3:
                 print("Congratulations, you won!")
